@@ -6,18 +6,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 public class ConnectionUtil {
 
-	private static Logger logger = Logger.getLogger(ConnectionUtil.class);
+	// private static Logger logger = Logger.getLogger(ConnectionUtil.class);
 
 	public static Connection getConnection() {
-		
-//		String url = "jdbc:postgresql://localhost:5432/";
-//		String username = "postgres";
-//		String password = "password";
-		
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
@@ -25,11 +20,12 @@ public class ConnectionUtil {
 		}
 		
 		Properties props = new Properties();
-		
-		// This may not be neccessary, but it is basically saying to 
+
+		// This may not be necessary, but it is basically saying to
 		// search for files in the current project
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		Connection conn = null;
+		
 		try {
 			props.load(loader.getResourceAsStream("connection.properties"));
 			String url = props.getProperty("url");
@@ -38,11 +34,12 @@ public class ConnectionUtil {
 			try {
 				conn = DriverManager.getConnection(url, username, password);
 			} catch (SQLException e) {
-				logger.warn("Unable to obtain connection to database", e);
+				// logger.warn("Unable to obtain connection to database", e);
 			}
 		} catch (IOException e1) {
+			
 		}
-		
+
 		return conn;
 	}
 }
