@@ -1,7 +1,11 @@
 package com.revature.service;
 
-import com.revature.model.User;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public interface UserSvc {	
-	public User verifyUser(String username, String password);
+	void verifyUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }

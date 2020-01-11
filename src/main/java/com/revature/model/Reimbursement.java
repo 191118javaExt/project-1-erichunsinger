@@ -1,4 +1,5 @@
 package com.revature.model;
+
 import java.sql.Timestamp;
 
 public class Reimbursement {
@@ -13,6 +14,9 @@ public class Reimbursement {
 	Long resolverId;
 	Long typeId;
 	Long statusId;
+	String typeStr;
+	String statusStr;
+
 	public Reimbursement(Long reimbId, double amount, Timestamp submitDate, Timestamp resolvedDate, String description,
 			String receipt, Long authorId, Long resolverId, Long typeId, Long statusId) {
 		super();
@@ -28,7 +32,8 @@ public class Reimbursement {
 		this.statusId = statusId;
 	}
 
-	public Reimbursement() {}
+	public Reimbursement() {
+	}
 
 	public Long getReimbId() {
 		return reimbId;
@@ -109,6 +114,21 @@ public class Reimbursement {
 	public void setStatusId(Long statusId) {
 		this.statusId = statusId;
 	}
-	
-	
+
+	public String getTypeStr() {
+		return typeStr;
+	}
+
+	public void setTypeStr(String typeStr) {
+		this.typeStr = typeStr;
+	}
+
+	public String getStatusStr() {
+		return statusStr;
+	}
+
+	public void setStatusStr(String statusStr) {
+		this.statusStr = statusStr;
+	}
+
 }

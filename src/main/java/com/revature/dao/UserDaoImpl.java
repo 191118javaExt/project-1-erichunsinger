@@ -17,8 +17,8 @@ public class UserDaoImpl implements UserDao {
 	// Class Variables
 	static final Logger logger = Logger.getLogger(UserDaoImpl.class);
 	static final String VERIFY_USER = 
-			"select * from project1.ers_user eu \r\n" + 
-			"join project1.ers_user_role eur on (eu.role_id = eur.role_id)\r\n" + 
+			"select * from project1.ers_users eu \r\n" + 
+			"join project1.ers_user_roles eur on (eu.role_id = eur.role_id)\r\n" + 
 			"where eu.ers_username = ? and eu.ers_password = ?";
 
 	public User verifyUser(String username, String password) {

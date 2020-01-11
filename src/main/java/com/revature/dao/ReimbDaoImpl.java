@@ -7,12 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import com.revature.RvrException;
 import com.revature.model.Reimbursement;
-import com.revature.model.User;
 import com.revature.utils.ConnectionUtil;
 
 public class ReimbDaoImpl implements ReimbDao {
@@ -20,7 +18,10 @@ public class ReimbDaoImpl implements ReimbDao {
 	
 	// Class Variables
 	static final Logger logger = Logger.getLogger(ReimbDaoImpl.class);
-	static final String GET_USER_REIMBURSEMENTS = "select * from project1.ers_reimbursement er where er.author_id = ?"; 
+	static final String GET_USER_REIMBURSEMENTS = "select * from project1.ers_reimbursement er \r\n" + 
+			"join project1.ers_reimbursement_type t on (er.type_id = t.reimbursement_id) \r\n" + 
+			"join project1.ers_reimbursement_status s on (er.status_id = s.status_id) \r\n" + 
+			"where er.author_id = ?"; 
 	//? Takes user id to get the reimbursements associated with the specified author_id
 
 	@Override
@@ -56,6 +57,8 @@ public class ReimbDaoImpl implements ReimbDao {
 					reim.setResolverId(Long.parseLong(rs.getString("resolver_id")));
 					reim.setTypeId(Long.parseLong(rs.getString("type_id")));
 					reim.setStatusId(Long.parseLong(rs.getString("status_id")));
+					reim.setStatusStr(rs.getString("reimb_status"));
+					reim.setTypeStr(rs.getString("reimbursement_type"));
 					reimList.add(reim);
 				}
 			} catch (SQLException ex) {

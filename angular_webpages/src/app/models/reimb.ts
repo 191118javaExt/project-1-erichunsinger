@@ -2,20 +2,15 @@ import { Timestamp } from 'rxjs';
 
 export class Reimb {
 
+    reimdId: number;
     amount: number;
-    type: string;
-    status: string;
+    submitDate: Date;
+    resolvedDate : Date;
     description: string;
-    receipt: Blob;
-
-    constructor(amount, type, status, description, receipt){
-        
-        this.amount = amount;
-        this.type = type;
-        this.status = status;
-        this.description = description;
-        this.receipt = receipt;
-
-    }
-
+    receipt: string;
+    authorId: number;
+    resolverId: number;
+    typeId: number;
+    statusId: number;
+    
 }

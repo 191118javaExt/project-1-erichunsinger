@@ -1,11 +1,13 @@
 package com.revature.service;
 
-import java.util.List;
+import java.io.IOException;
 
-import com.revature.model.Reimbursement;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public interface ReimbSvc {
 	
-	public List<Reimbursement> getReimbById(Long id);
+	public void getReimbById(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
 
 }
