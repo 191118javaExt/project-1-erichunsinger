@@ -1,6 +1,6 @@
 package com.revature.service;
 
-import com.revature.bo.User;
+import com.revature.model.User;
 
 public interface UserSvc {	
 	public User verifyUser(String username, String password);

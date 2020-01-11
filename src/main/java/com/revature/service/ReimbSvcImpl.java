@@ -1,10 +1,11 @@
 package com.revature.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.bo.Reimbursement;
-import com.revature.data.ReimbDao;
-import com.revature.data.ReimbDaoImpl;
+import com.revature.dao.ReimbDao;
+import com.revature.dao.ReimbDaoImpl;
+import com.revature.model.Reimbursement;
 
 public class ReimbSvcImpl implements ReimbSvc {
 	
@@ -12,37 +13,31 @@ public class ReimbSvcImpl implements ReimbSvc {
 	ReimbDao reimbDao = new ReimbDaoImpl();
 
 	@Override
-	public Reimbursement getReimbById(Long id) {
-		Reimbursement reimb = null;;
-		
-		try {
-			reimb = reimbDao.getReimbById(id);
-		}
-		catch (Exception e) {
-			
-		}
-		return reimb;
+	public List<Reimbursement> getReimbById(Long id) {
+		List<Reimbursement> reimbList = new ArrayList<Reimbursement>();
+		reimbList = reimbDao.getReimbursements(id);
+		return reimbList;
 	}
 
 
-	@Override
-	public List<Reimbursement> getAll() {
-		List<Reimbursement> reimbs = null;
-		
-		try {
-			reimbs = reimbDao.getAll();
-		}
-		catch (Exception e) {
-			
-		}
-		return reimbs;
-	}
-
-
-	@Override
-	public int create() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public List<Reimbursement> getAll() {
+//		List<Reimbursement> reimbs = null;
+//		
+//		try {
+//			reimbs = reimbDao.getAll();
+//		}
+//		catch (Exception e) {
+//			
+//		}
+//		return reimbs;
+//	}
+//
+//
+//	@Override
+//	public int create() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 	
 }

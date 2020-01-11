@@ -2,12 +2,10 @@ package com.revature.service;
 
 import java.util.List;
 
-import com.revature.bo.Reimbursement;
+import com.revature.model.Reimbursement;
 
 public interface ReimbSvc {
 	
-	public Reimbursement getReimbById(Long id);
-	public List<Reimbursement> getAll();
-	public int create();
+	public List<Reimbursement> getReimbById(Long id);
 
 }

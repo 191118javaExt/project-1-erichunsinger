@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 
@@ -22,5 +22,13 @@ export class UserService {
 
   logout() {
     return this.http.post<void>("http://localhost:8080/ProjectOne/logout", {});
+  }
+
+  popTable(id: number): Observable<User> {
+    let headers = new HttpHeaders({
+      "id": id.toString()
+  });
+
+    return this.http.get<User>('http://localhost:8080/ProjectOne/getTable', {headers: headers});
   }
 }

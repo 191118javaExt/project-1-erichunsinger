@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DirectiveComponent } from './components/directive/directive.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EmpPageComponent } from './src/app/emp-page/emp-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeComponent,
     LoginComponent,
     DirectiveComponent,
-    ProfileComponent
+    ProfileComponent,
+    EmpPageComponent
   ],
   imports: [
     BrowserModule,

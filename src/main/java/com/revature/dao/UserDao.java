@@ -1,11 +1,11 @@
-package com.revature.data;
+package com.revature.dao;
 
 
 
 import java.sql.SQLException;
 import java.util.List;
 
-import com.revature.bo.User;
+import com.revature.model.User;
 
 public interface UserDao {
 	public User verifyUser(String username, String password);

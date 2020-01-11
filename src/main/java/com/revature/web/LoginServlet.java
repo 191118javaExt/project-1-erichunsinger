@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.bo.User;
+import com.revature.model.User;
 import com.revature.service.UserSvc;
 import com.revature.service.UserSvcImpl;
 

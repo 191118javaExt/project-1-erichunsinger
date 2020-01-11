@@ -1,4 +1,4 @@
-package com.revature.data;
+package com.revature.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.revature.RvrException;
-import com.revature.bo.User;
+import com.revature.model.User;
 import com.revature.utils.ConnectionUtil;
 
 public class UserDaoImpl implements UserDao {
@@ -35,21 +35,21 @@ public class UserDaoImpl implements UserDao {
 				conn = ConnectionUtil.getConnection();
 
 				stmt = conn.prepareStatement(sql);
-				stmt.setString(1, username);
-				stmt.setString(2, password);
+				stmt.setObject(1, username);
+				stmt.setObject(2, password);
 				
 				stmt.executeQuery();
 				rs = stmt.executeQuery();
 				
 				while(rs.next()) {
 					user = new User();
-					user.setUserId(rs.getLong("USER_ID"));
-					user.setUsername(rs.getString("ERS_USERNAME"));
-					user.setPassword(rs.getString("ERS_PASSWORD"));
-					user.setFirstName(rs.getString("USER_FIRST_NAME"));
-					user.setLastName(rs.getString("USER_LAST_NAME"));
-					user.setEmail(rs.getString("USER_EMAIL"));
-					user.setUserRole(rs.getString("USER_ROLE"));
+					user.setUserId(rs.getLong("user_id"));
+					user.setUsername(rs.getString("ers_username"));
+					user.setPassword(rs.getString("ers_password"));
+					user.setFirstName(rs.getString("user_first_name"));
+					user.setLastName(rs.getString("user_last_name"));
+					user.setEmail(rs.getString("user_email"));
+					user.setUserRole(rs.getString("user_role"));
 				}
 			} catch (SQLException ex) {
 				System.out.println(ex.getMessage());

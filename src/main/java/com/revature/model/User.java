@@ -1,4 +1,4 @@
-package com.revature.bo;
+package com.revature.model;
 
 import java.io.Serializable;
 import java.util.List;

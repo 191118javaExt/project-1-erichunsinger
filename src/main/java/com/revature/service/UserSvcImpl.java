@@ -1,8 +1,8 @@
 package com.revature.service;
 
-import com.revature.bo.User;
-import com.revature.data.UserDao;
-import com.revature.data.UserDaoImpl;
+import com.revature.dao.UserDao;
+import com.revature.dao.UserDaoImpl;
+import com.revature.model.User;
 
 public class UserSvcImpl implements UserSvc {
 

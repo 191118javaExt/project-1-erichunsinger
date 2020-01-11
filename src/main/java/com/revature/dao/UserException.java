@@ -1,4 +1,4 @@
-package com.revature.data;
+package com.revature.dao;
 
 public class UserException extends RuntimeException {
 	/**

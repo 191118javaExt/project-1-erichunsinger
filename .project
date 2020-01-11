@@ -36,12 +36,30 @@
 	</natures>
 	<filteredResources>
 		<filter>
+			<id>1578762902458</id>
+			<name>angular-tour-of-heroes</name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*</arguments>
+			</matcher>
+		</filter>
+		<filter>
 			<id>1578620744183</id>
 			<name>angular_webpages</name>
 			<type>22</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-name-matches-false-false-*</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1578762847941</id>
+			<name>src/main/webapp</name>
+			<type>5</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-web.xml</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>
