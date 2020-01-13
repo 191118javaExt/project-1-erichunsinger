@@ -22,7 +22,7 @@ public class DispatcherServlet extends HttpServlet {
 	private ReimbSvcImpl reimServices = new ReimbSvcImpl();
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		logger.error("Front controller GET handling requests");
+		logger.info("Front controller GET handling requests");
 		final String URI = request.getRequestURI().replace("/ProjectOne/", "");
 	
 		switch (URI) {
@@ -43,6 +43,9 @@ public class DispatcherServlet extends HttpServlet {
 		switch (URI) {
 			case "login":
 				uServices.verifyUser(request, response);
+				break;
+			case "createTicket":
+				reimServices.insertTicket(request, response);
 				break;
 		}
 

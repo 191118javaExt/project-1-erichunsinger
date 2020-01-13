@@ -22,9 +22,7 @@ export class LoginComponent implements OnInit {
   sendLogin() {
     this.uServe.login(this.username, this.password).subscribe(
       (userModel: User) => {
-        console.log(userModel);
-        console.log(userModel.userRole);
-        //sessionStorage.setItem('currentUser', JSON.stringify(response));
+        localStorage.setItem('currentUser', JSON.stringify(userModel));
         // console.log(response);
         this.router.navigate(['/home']);
       }

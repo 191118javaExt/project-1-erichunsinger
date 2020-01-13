@@ -1,89 +1,65 @@
+<app-navbar></app-navbar>
 <section id="tabs" class="project-tab">
-  <button (click)="popTable()">Test Button</button>
-  <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="tab-content" id="nav-tabContent">
-                  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                      <table class="table" cellspacing="0">
-                          <thead>
-                              <tr>
-                                  <th>Amount</th>
-                                  <th>Submit Date</th>
-                                  <th>Resolve Date</th>
-                                  <th>Type</th>
-                                  <th>Status</th>
-                              </tr>
-                          </thead>
-                          <tbody *ngFor="let r of reimbData">
-                              <tr>
-                                  <td>{{r.amount | currency: 'USD':'symbol': '0.2'}}</td>
-                                  <td>{{r.submitDate | date: 'MM/dd/yyyy'}}</td>
-                                  <td>{{r.resolvedDate | date: 'MM/dd/yyyy'}}</td>
-                                  <td>{{r.typeStr}}</td>
-                                  <td>{{r.statusStr}}</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-                  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                      <table class="table" cellspacing="0">
-                          <thead>
-                              <tr>
-                                  <th>Project Name</th>
-                                  <th>Employer</th>
-                                  <th>Time</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td><a href="#">Work 1</a></td>
-                                  <td>Doe</td>
-                                  <td>john@example.com</td>
-                              </tr>
-                              <tr>
-                                  <td><a href="#">Work 2</a></td>
-                                  <td>Moe</td>
-                                  <td>mary@example.com</td>
-                              </tr>
-                              <tr>
-                                  <td><a href="#">Work 3</a></td>
-                                  <td>Dooley</td>
-                                  <td>july@example.com</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-                  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                      <table class="table" cellspacing="0">
-                          <thead>
-                              <tr>
-                                  <th>Contest Name</th>
-                                  <th>Date</th>
-                                  <th>Award Position</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td><a href="#">Work 1</a></td>
-                                  <td>Doe</td>
-                                  <td>john@example.com</td>
-                              </tr>
-                              <tr>
-                                  <td><a href="#">Work 2</a></td>
-                                  <td>Moe</td>
-                                  <td>mary@example.com</td>
-                              </tr>
-                              <tr>
-                                  <td><a href="#">Work 3</a></td>
-                                  <td>Dooley</td>
-                                  <td>july@example.com</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <button (click)="createNewRow()">New Ticket</button>
+    <select>
+        <option>Pending</option>
+        <option>Approved</option>
+        <option>Denied</option>
+    </select>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <table #myTable class="table" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Amount</th>
+                                    <th>Submit Date</th>
+                                    <th>Resolve Date</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Description</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="showNewRow"><tr *ngTemplateOutlet="newrow"></tr></tbody>
+                            <tbody *ngFor="let r of reimbData">
+                                <tr>
+                                    <td>{{r.amount | currency: 'USD':'symbol': '0.2'}}</td>
+                                    <td>{{r.submitDate | date: 'MM/dd/yyyy'}}</td>
+                                    <td>{{r.resolvedDate | date: 'MM/dd/yyyy'}}</td>
+                                    <td>{{r.typeStr}}</td>
+                                    <td>{{r.statusStr}}</td>
+                                    <td>{{r.description}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<ng-template #newrow>
+    <td><input [(ngModel)]='amount' type='input' size=8></td>
+    <td>{{sumbmitDate | date: 'MM/dd/yyyy'}}</td>
+    <td>--</td>
+    <td>
+        <select [(ngModel)]='type'>
+            <option value=1>Food</option>
+            <option value=2>Travel</option>
+            <option value=3>Lodging</option>
+            <option value=4>Other</option>
+        </select>
+    </td>
+    <td>pending</td>
+    <td>
+        <textarea [(ngModel)]='description' maxLength=255></textarea>
+    </td>
+    <td>
+        <button (click)="saveNewTicket()">submit</button>
+    </td>
+</ng-template>

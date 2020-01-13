@@ -11,6 +11,7 @@ import { DirectiveComponent } from './components/directive/directive.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EmpPageComponent } from './src/app/emp-page/emp-page.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EmpPageComponent } from './src/app/emp-page/emp-page.component';
     LoginComponent,
     DirectiveComponent,
     ProfileComponent,
-    EmpPageComponent
+    EmpPageComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,

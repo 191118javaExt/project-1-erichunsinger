@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.revature.RvrException;
+import com.revature.model.Reimbursement;
 import com.revature.model.User;
 import com.revature.utils.ConnectionUtil;
 
@@ -69,18 +71,6 @@ public class UserDaoImpl implements UserDao {
 			user.setIsLogin(true);
 		}
 		return user;
-	}
-
-	@Override
-	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int insert() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
